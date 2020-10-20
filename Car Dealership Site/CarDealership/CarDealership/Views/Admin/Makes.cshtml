@@ -1,0 +1,58 @@
+﻿@model CarDealership.Models.Classes.View_Model_Classes.MakeVM
+@{
+    ViewBag.Title = "Makes";
+}
+
+<style>
+    table {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    tbody th {
+        background-color: #90c0ff;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    tbody td {
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #e6f5ff;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #ccebff;
+    }
+</style>
+
+<h2>Makes</h2>
+
+@using (Html.BeginForm("Makes", "Admin", FormMethod.Post, new { id = User.Identity.Name }))
+{
+    <div class="row">
+        New Make
+        @Html.TextBoxFor(m => m.Make.MakeName, new { @class = "form-control" })
+        <button class="btn badge-primary">Save</button>
+    </div>
+}
+<table>
+    <tr>
+        <th>Make</th>
+        <th>Date Added</th>
+        <th>User</th>
+    </tr>
+
+    @foreach (var item in Model.MakeList)
+    {
+        <tr>
+            <td>@item.MakeName</td>
+            <td>@item.DateCreated.ToString("MM/dd/yy")</td>
+            <td>@item.UserId</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,64 @@
+﻿@model CarDealership.Models.Classes.View_Model_Classes.VehicleAddEditVM
+@{
+    ViewBag.Title = "AddVehicle";
+}
+
+@Html.ValidationSummary()
+
+<h2>Add Vehicle</h2>
+
+@using (Html.BeginForm())
+{
+<div class="col-md-5">
+    Type
+    @Html.DropDownListFor(m => m.Vehicle.Type, Model.TypeList, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Vehicle.Type)
+    <br />
+    Color
+    @Html.DropDownListFor(m => m.Vehicle.ColorId, Model.ColorList, new { @class = "form-control" })
+    <br />
+    Mileage
+    @Html.TextBoxFor(m => m.Vehicle.Mileage, new { @class = "form-control" })
+    <br />
+    MSRP
+    @Html.TextBoxFor(m => m.Vehicle.MSRP, new { @class = "form-control" })
+</div>
+
+<div class="col-md-5">
+    Model
+    <br />
+    @Html.DropDownListFor(m => m.Vehicle.ModelId, Model.ModelList, "-Choose One-", new { @class = "form-control" })
+    <br />
+    Body Style
+    @Html.DropDownListFor(m => m.Vehicle.BodyStyleId, Model.BodyStyleList, "-Choose One-", new { @class = "form-control" })
+    <br />
+    Transmission
+    @Html.DropDownListFor(m => m.Vehicle.Transmission, Model.TransmissionList, "-Choose One-", new { @class = "form-control" })
+    <br />
+    Interior
+    @Html.DropDownListFor(m => m.Vehicle.InteriorId, Model.InteriorList, "-Choose One-", new { @class = "form-control" })
+    <br />
+    VIN #
+    @Html.TextBoxFor(m => m.Vehicle.VIN, new { @class = "form-control" })
+    <br />
+    Sale Price
+    @Html.TextBoxFor(m => m.Vehicle.Price, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Vehicle.Price)
+</div>
+
+    <div class="col-md-10">
+        Description
+        <br />
+        @Html.TextAreaFor(m => m.Vehicle.Description, new { @class = "from-control"})
+    </div>
+
+    <div class="col-md-4">
+        Picture
+        <br />
+        @Html.TextBoxFor(m => m.Vehicle.Picture, new { @class = "form-control" })
+        <br />
+        Feature this vehicle?
+        @Html.CheckBoxFor(m => m.Vehicle.Featured, new { @class = "form-control" })
+        <button class="btn badge-primary">Submit</button>
+    </div>
+}

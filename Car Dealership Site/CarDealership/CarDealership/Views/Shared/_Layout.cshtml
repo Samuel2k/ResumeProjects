@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript" src="~/Scripts/Ajax.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("SMJK SGCars", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="font-size: small;">
+                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { @style = "padding: 6px"})</li>
+                    <li>@Html.ActionLink("New Inventory", "New", "Inventory", null, new { @style = "padding: 6px"})</li>
+                    <li>@Html.ActionLink("Used Inventory", "Used", "Inventory", null, new { @style = "padding: 6px"})</li>
+                    <li>@Html.ActionLink("Specials", "Specials", "Home", null, new { @style = "padding: 6px"})</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { id = -1 }, new { @style = "padding: 6px"})</li>
+                    @if (User.IsInRole("Sales") || User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Sales Vehicles", "Vehicles", "Sales", null, new { @style = "padding: 6px"})</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Admin Vehicles", "Vehicles", "Admin", null, new { @style = "padding: 6px"})</li>
+                        <li>@Html.ActionLink("Users", "Users", "Admin", null, new { @style = "padding: 6px"})</li>
+                        <li>@Html.ActionLink("Specials", "Specials", "Admin", null, new { @style = "padding: 6px"})</li>
+                        <li>@Html.ActionLink("Models", "Models", "Admin", null, new { @style = "padding: 6px"})</li>
+                        <li>@Html.ActionLink("Makes", "Makes", "Admin", null, new { @style = "padding: 6px"})</li>
+                        <li>@Html.ActionLink("Reports", "Index", "Reports", null, new { @style = "padding: 6px"})</li>
+                    }
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div style="position: absolute; height: 50px">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Samuel Krinhop - Sample Guildcars Site</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

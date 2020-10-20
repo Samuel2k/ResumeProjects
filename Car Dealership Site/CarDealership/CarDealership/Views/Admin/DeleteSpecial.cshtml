@@ -1,0 +1,16 @@
+﻿@model CarDealership.Models.Classes.Special
+@{
+    ViewBag.Title = "Delete Special";
+}
+
+<h2>Delete Special</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.SpecialId);
+    <h3>Are you sure you want to delete the @Model.SpecialTitle special?</h3>
+    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+    @Html.ActionLink("Cancel", "Specials", "Admin", null, new { @class = "btn btn-sm btn-info" })
+}

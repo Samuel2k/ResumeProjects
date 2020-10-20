@@ -1,0 +1,50 @@
+﻿@model CarDealership.Models.Classes.VehicleVM
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    .longbox {
+        margin: 5%;
+        width: 95%;
+        border: 2px solid black;
+    }
+</style>
+
+<h2>Vehicle Details</h2>
+
+<div class="row longbox">
+    <div class="col-md-3">
+        <p> @Model.Model.ModelYear </p>
+        <img src="@Model.Vehicle.Picture" style="height: 200px; width: 250px;">
+    </div>
+    <div class="col-md-3">
+        <b>Body Style:</b> @Model.BodyStyle.BodyStyleName
+        <br />
+        <b>     Trans:</b> @Model.Vehicle.Transmission
+        <br />
+        <b>     Color:</b> @Model.Color.ColorName
+    </div>
+    <div class="col-md-3">
+        <b>Interior:</b> @Model.Interior.InteriorName
+        <br />
+        <b> Mileage:</b> @Model.Vehicle.Mileage
+        <br />
+        <b>   VIN #:</b> @Model.Vehicle.VIN
+    </div>
+    <div class="col-md-3">
+        <b>Sale Price:</b> @Model.Vehicle.Price
+        <br />
+        <b> MSRP:</b> @Model.Vehicle.MSRP
+        <br />
+        @if (Model.Purchased == true)
+        {
+            <button class="btn-block">Unavailable - Sold</button>
+        }
+        else
+        {
+            @Html.ActionLink("Contact Us", "Contact", "Home", new { id = Model.Vehicle.VehicleId }, null)
+        }
+
+    </div>
+</div>

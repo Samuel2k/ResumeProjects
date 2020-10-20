@@ -1,0 +1,38 @@
+﻿@model CarDealership.Models.Classes.View_Model_Classes.SpecialVM
+@{
+    ViewBag.Title = "Specials";
+}
+
+<h2>Specials</h2>
+
+<style>
+    .longbox {
+        margin: 5%;
+        width: 95%;
+        border: 2px solid black;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <div class="row longbox">
+            Title
+            @Html.TextBoxFor(x => x.Special.SpecialTitle, new { @class = "form-control" });
+            <br />
+            Description
+            @Html.TextAreaFor(x => x.Special.SpecialDescription, new { @class = "form-control" });
+            <br />
+            <button class="btn badge-primary">Save</button>
+    </div>
+}
+
+@foreach (var item in Model.SpecialList)
+{
+    <div class="row longbox">
+        <h3>@item.SpecialTitle</h3>
+        <br />
+        <p>@item.SpecialDescription</p>
+        @Html.ActionLink("Delete", "DeleteSpecial", "Admin", new { id = item.SpecialId }, null)
+    </div>
+}
+

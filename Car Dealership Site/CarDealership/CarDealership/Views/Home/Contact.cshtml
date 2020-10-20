@@ -1,0 +1,33 @@
+﻿@model CarDealership.Models.Classes.View_Model_Classes.ContactVM
+@{
+    ViewBag.Title = "Contact";
+}
+
+<h2>Contact Us</h2>
+
+@using (Html.BeginForm())
+{
+<div class="col-md-4">
+    <h4>Name</h4>
+    @Html.TextBoxFor(x => x.Contact.Name, new { @class = "form-control" })
+    <h4>Email</h4>
+    @Html.TextBoxFor(x => x.Contact.Email, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Contact.Email);
+    <h4>Phone</h4>
+    @Html.TextBoxFor(x => x.Contact.Phone, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Contact.Phone);
+    <h4>Message</h4>
+    @Html.TextAreaFor(x => x.Contact.Message, new { @class = "form-control" })
+    <br />
+    <button class="btn badge-primary">Submit</button>
+</div>
+}
+<div class="col-md-8">
+    <img src="/Pictures/Map.jpg" style="height: 250px; width: 250px;">
+    <br />
+    <h4>1234 Iron Street</h4>
+    <br />
+    <h4>Sales: 123-456-7890</h4>
+    <br />
+    <h4>Service: 109-876-5432</h4>
+</div>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vending Machine</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="home.js"></script>
+
+    <style>
+
+      * {font-family: sans-serif;}
+
+      span.a
+      {
+        display: inline-block;
+        border: 2px solid black;
+        margin: 2%;
+        margin-top: 1%;
+        padding: 5px;
+        height: 250px;
+        width: 250px;
+        white-space: normal;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      div.b
+      {
+        float: right;
+        display: inline-block;
+        border-bottom: 2px solid black;
+        margin: 1%;
+        padding: 5px;
+        width: 280px;
+        height: 280px;
+        white-space: normal;
+        text-align: center;
+        font-size: 25px;
+      }
+
+      span.c
+      {
+        display: inline-block;
+        border: 2px solid black;
+        margin: 1%;
+        height: 50px;
+        width: 230px;
+        white-space: normal;
+        text-align: center;
+        font-size: 20px;
+      }
+      span.d
+      {
+        display: inline-block;
+        border: 2px solid black;
+        margin: 2%;
+        padding: 5px;
+        height: 100px;
+        width: 250px;
+        white-space: normal;
+        text-align: center;
+        font-size: 30px;
+      }
+      span.e
+      {
+        border: 1px dashed grey;
+        margin: 5%;
+        margin-bottom: 8%;
+        padding: 5px;
+        height: 40px;
+        width: 120px;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      hr {border-bottom: 1px solid black;}
+      .moneyButton {font-size: 15px; width: 40%}
+
+      .label {text-align: left; font-size: 25px; margin: 0}
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h2 style="margin: 20px"><center>Vending Machine</center></h2>
+      <hr/>
+    </header>
+
+      <!--Make two side-by-side divs, one contains larger portions & class col-md-8. The smaller should be col-md-4. Use bootstrap-->
+      <div class="col-md-8" style="margin: 0; float: left;">
+        <!--<span class="a" id="example-box 1">
+          <p class="label">1</p>
+          Item
+          <br/>
+          Price
+          <br/><br/>
+          Quantity Left
+        </span>-->
+      </div>
+
+    <div class="col-md-4" style="margin: 0%; float: right;">
+    <div class="b row" id="moneySidebar">
+      <br/>
+      Total # In
+      <span class="c" id="moneyDisplayBox"></span>
+      <br/><br/>
+      <button id="dollar" class="moneyButton" onclick="insertDol()">Add Dollar</button>
+      <button id="Quarter" class="moneyButton" onclick="insertQ()">Add Quarter</button>
+      <button id="Dime" class="moneyButton" onclick="insertDi()">Add Dime</button>
+      <button id="Nickel" class="moneyButton" onclick="insertN()">Add Nickel</button>
+    </div>
+
+    <div class="b row" id="messageSidebar">
+      Messages
+      <span class="c" id="messageDisplayBox"></span>
+      Item: <span class="e" id="itemDisplayBox"></span>
+      <br/>
+      <button id="purchaseButton" type="button" onclick="attemptPurchase()" style="height: 50px; width: 200px;">Make Purchase</span>
+    </div>
+
+    <div class="b row" id="changeSidebar" style="border: 0px;">
+      Change
+      <span class="c" style="font-size: 20px;" id="changeDisplayBox"></span>
+      <p></p>
+      <button id="changeButton" type="button" onclick="returnChange()" style="height: 50px; width: 200px;">Change return</span>
+    </div>
+  </div>
+  </body>
+</html>

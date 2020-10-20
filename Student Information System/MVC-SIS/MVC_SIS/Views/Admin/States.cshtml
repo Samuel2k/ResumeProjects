@@ -1,0 +1,54 @@
+﻿@model List<Exercises.Models.Data.State>
+@{
+    ViewBag.Title = "States";
+}
+
+<h2>States</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>States</h3>
+        @Html.ActionLink("Add State", "AddState", "Admin", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped" style="width: auto;">
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Abbreviation</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var state in Model)
+                {
+                <tr>
+                    <td>@state.StateName</td>
+                    <td>@state.StateAbbreviation</td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditState", "Admin", new { abbreviation = state.StateAbbreviation }, null) |
+                        @Html.ActionLink("Delete", "DeleteState", "Admin", new { abbreviation = state.StateAbbreviation }, null)
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

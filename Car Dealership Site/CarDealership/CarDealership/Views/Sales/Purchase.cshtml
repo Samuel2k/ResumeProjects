@@ -1,0 +1,98 @@
+﻿@model CarDealership.Models.Classes.View_Model_Classes.PurchaseVM
+@{
+    ViewBag.Title = "Purchase";
+}
+
+<h2>Purchase Vehicle</h2>
+
+<div class="append-Here">
+
+</div>
+
+<div class="row longbox">
+    <div class="col-md-3">
+        <p> @Model.VehicleVM.Model.ModelYear </p>
+        <img src="@Model.VehicleVM.Vehicle.Picture" style="height: 200px; width: 250px;">
+    </div>
+    <div class="col-md-3">
+        <b>Body Style:</b> @Model.VehicleVM.BodyStyle.BodyStyleName
+        <br />
+        <b>     Trans:</b> @Model.VehicleVM.Vehicle.Transmission
+        <br />
+        <b>     Color:</b> @Model.VehicleVM.Color.ColorName
+    </div>
+    <div class="col-md-3">
+        <b>Interior:</b> @Model.VehicleVM.Interior.InteriorName
+        <br />
+        <b> Mileage:</b> @Model.VehicleVM.Vehicle.Mileage
+        <br />
+        <b>   VIN #:</b> @Model.VehicleVM.Vehicle.VIN
+    </div>
+    <div class="col-md-3">
+        <b>Sale Price:</b> @Model.VehicleVM.Vehicle.Price
+        <br />
+        <b> MSRP:</b> @Model.VehicleVM.Vehicle.MSRP
+        <br />
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Purchase.VehicleId, Model.VehicleVM.Vehicle.VehicleId)
+    @Html.HiddenFor(m => m.Purchase.UserId, User.Identity.Name)
+    <h3>Sales Information</h3>
+    <div class="row">
+        <div class="col-md-4">
+            Name
+            @Html.TextBoxFor(m => m.Purchase.Name, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4">
+            Phone
+            @Html.TextBoxFor(m => m.Purchase.PhoneNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Purchase.PhoneNumber);
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            Email
+            @Html.TextBoxFor(m => m.Purchase.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Purchase.Email);
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            Street Address
+            @Html.TextBoxFor(m => m.Purchase.Street1, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4">
+            Address Line 2
+            @Html.TextBoxFor(m => m.Purchase.Street2, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            City
+            @Html.TextBoxFor(m => m.Purchase.City, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4">
+            State
+            @Html.DropDownListFor(m => m.Purchase.State, Model.StateList, "-Choose One-", new { @class = "form-control" })
+        </div>
+        <div>
+            Zip
+            @Html.TextBoxFor(m => m.Purchase.ZipCode, new { @class = "form-control"});
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            Purchase Price
+            @Html.TextBoxFor(m => m.Purchase.PurchasePrice, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Purchase.PurchasePrice);
+        </div>
+        <div class="col-md-4">
+            Purchase Type
+            @Html.DropDownListFor(m => m.Purchase.PurchaseType, Model.FinanceList, "-Choose One-", new { @class = "form-control" })
+        </div>
+    </div>
+    <button type="submit">Save</button>
+}

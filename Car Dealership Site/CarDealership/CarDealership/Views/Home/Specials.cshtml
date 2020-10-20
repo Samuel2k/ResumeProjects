@@ -1,0 +1,28 @@
+﻿@model List<CarDealership.Models.Classes.Special>
+@{
+    ViewBag.Title = "Specials";
+}
+
+<h2>Specials</h2>
+
+<style>
+    .longbox {
+        margin: 5%;
+        width: 95%;
+        border: 2px solid black;
+    }
+</style>
+
+<h2>Specials</h2>
+
+@foreach (var item in Model)
+{
+    <div class="row longbox" id="@item.SpecialId">
+
+        <h3>@item.SpecialTitle</h3>
+        <br />
+        <p>@item.SpecialDescription</p>
+    </div>
+}
+
+

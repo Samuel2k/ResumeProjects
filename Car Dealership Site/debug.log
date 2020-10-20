@@ -1,0 +1,9 @@
+[0415/191558.105:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0415/191558.105:ERROR:scoped_process_suspend.cc(31)] NtSuspendProcess: An attempt was made to access an exiting process. (0xc000010a)
+[0415/191558.199:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0415/191558.183:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0415/191558.340:ERROR:exception_snapshot_win.cc(98)] thread ID 8404 not found in process
+[0415/191558.340:ERROR:exception_snapshot_win.cc(98)] thread ID 17400 not found in process
+[0415/191558.340:ERROR:exception_snapshot_win.cc(98)] thread ID 5368 not found in process
+[0415/191558.340:ERROR:process_info.cc(118)] ReadProcessMemory bool __cdecl crashpad::(anonymous namespace)::ReadStruct(HANDLE, crashpad::WinVMAddress, T *) [T = crashpad::process_types::PEB<crashpad::process_types::internal::Traits64>]: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[0415/191558.402:ERROR:process_info.cc(551)] ReadProcessData failed

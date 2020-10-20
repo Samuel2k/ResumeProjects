@@ -1,0 +1,77 @@
+﻿@model CarDealership.Models.Classes.View_Model_Classes.InventoryVM
+@{
+    ViewBag.Title = "Inventory";
+}
+
+<h2>Inventory Report</h2>
+
+<style>
+    table {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    tbody th {
+        background-color: #90c0ff;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    tbody td {
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #e6f5ff;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #ccebff;
+    }
+</style>
+
+<h5>New Vehicles</h5>
+
+
+<table>
+    <tr>
+        <th>Year</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Count</th>
+        <th>Stock Value</th>
+    </tr>
+    @foreach (var item in Model.NewVehicles)
+    {
+        <tr>
+            <td>@item.VehicleVM.Model.ModelYear</td>
+            <td>@item.VehicleVM.Make.MakeName</td>
+            <td>@item.VehicleVM.Model.ModelName</td>
+            <td>@item.Count</td>
+            <td>@item.VehicleVM.Vehicle.MSRP</td>
+        </tr>
+    }
+</table>
+
+<h5>Used Vehicles</h5>
+<table>
+    <tr>
+        <th>Year</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Count</th>
+        <th>Stock Value</th>
+    </tr>
+    @foreach (var item in Model.UsedVehicles)
+    {
+        <tr>
+            <td>@item.VehicleVM.Model.ModelYear</td>
+            <td>@item.VehicleVM.Make.MakeName</td>
+            <td>@item.VehicleVM.Model.ModelName</td>
+            <td>@item.Count</td>
+            <td>@item.VehicleVM.Vehicle.MSRP</td>
+        </tr>
+    }
+</table>

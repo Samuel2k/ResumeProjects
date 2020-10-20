@@ -1,0 +1,64 @@
+﻿@model CarDealership.Models.Classes.View_Model_Classes.SalesVM
+@{
+    ViewBag.Title = "Sales";
+}
+
+<h2>Sales Report</h2>
+
+<style>
+    table {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    tbody th {
+        background-color: #90c0ff;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    tbody td {
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #e6f5ff;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #ccebff;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+<div class="row">
+    Filters
+    <br />
+    User
+    @Html.DropDownListFor(x => x.SelectedUserId, Model.UserList)
+    From Date
+    @Html.TextBoxFor(x => x.MinDate)
+    To Date
+    @Html.TextBoxFor(x => x.MaxDate)
+    <button class="btn badge-primary">Save</button>
+</div>
+}
+
+<table>
+    <tr>
+        <th>User</th>
+        <th>Total Sales</th>
+        <th>Total Vehicles</th>
+    </tr>
+    @foreach (var item in Model.SalesEntries)
+    {
+        <tr>
+            <td>@item.UserId</td>
+            <td>@item.TotalSales</td>
+            <td>@item.TotalVehicles</td>
+        </tr>
+    }
+</table>

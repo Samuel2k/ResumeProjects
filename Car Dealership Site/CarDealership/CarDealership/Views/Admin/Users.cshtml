@@ -1,0 +1,51 @@
+﻿@model List<CarDealership.Models.Classes.User>
+@{
+    ViewBag.Title = "Users";
+}
+
+<style>
+
+    table {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    tbody th {
+        background-color: #90c0ff;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    tbody td {
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #e6f5ff;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #ccebff;
+    }
+</style>
+
+<h2>Users</h2>
+
+<!--Html.ActionLink("Edit User", "ForgotPassword", "Account", null, new { class = "btn btn-primary" })-->
+
+<table>
+    <tr>
+        <th>Email</th>
+        <th>Role</th>
+        <th />
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Email</td>
+            <td>@item.Role</td>
+        </tr>
+    }
+</table>

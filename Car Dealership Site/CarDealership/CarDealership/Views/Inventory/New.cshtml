@@ -1,0 +1,66 @@
+﻿@model CarDealership.Models.Classes.View_Model_Classes.SearchVehicleVM
+@{
+    ViewBag.Title = "New";
+}
+<style>
+    .longbox {
+        margin: 5%;
+        width: 95%;
+        border: 2px solid black;
+    }
+</style>
+
+<!--Populate the min price & max price using AJAX call-->
+
+<header>
+    <h2>New Vehicles</h2>
+        <div class="row longbox">
+            @using (Html.BeginForm())
+            {
+                <label>Search</label>
+                @Html.TextBoxFor(m => m.SearchBar, new { @class = "form-control", @placeholder = "Enter make, model, or year"})
+                <label>Min Price</label>
+                @Html.DropDownListFor(m => m.MinPrice, Model.PriceList)
+                <label>Max Price</label>
+                @Html.DropDownListFor(m => m.MaxPrice, Model.PriceList)
+                <label>Min Year</label>
+                @Html.DropDownListFor(m => m.MinYear, Model.YearList)
+                <label>Max Year</label>
+                @Html.DropDownListFor(m => m.MaxYear, Model.YearList)
+                <button class="btn badge-primary" type="submit">Search</button>
+            }
+        </div>
+</header>
+
+<h2>Search Results</h2>
+
+@foreach (var item in Model.VehicleList)
+{
+    <div class="row longbox">
+        <div class="col-md-3">
+            <p> @item.Model.ModelYear @item.Make.MakeName @item.Model.ModelName </p>
+            <img src="@item.Vehicle.Picture" style="height: 200px; width: 250px;">
+        </div>
+        <div class="col-md-3">
+            <b>Body Style:</b> @item.BodyStyle.BodyStyleName
+            <br />
+            <b>     Trans:</b> @item.Vehicle.Transmission
+            <br />
+            <b>     Color:</b> @item.Color.ColorName
+        </div>
+        <div class="col-md-3">
+            <b>Interior:</b> @item.Interior.InteriorName
+            <br />
+            <b> Mileage:</b> @item.Vehicle.Mileage
+            <br />
+            <b>   VIN #:</b> @item.Vehicle.VIN
+        </div>
+        <div class="col-md-3">
+            <b>Sale Price:</b> @item.Vehicle.Price
+            <br />
+            <b> MSRP:</b> @item.Vehicle.MSRP
+            <br />
+            @Html.ActionLink("Details", "Details", "Inventory", new { id = item.Vehicle.VehicleId }, null)
+        </div>
+    </div>
+}
