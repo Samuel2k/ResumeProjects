@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+
+   string input;
+   string spacelessInput = "";
+   string backwardSpaceless = "";
+   
+   getline(cin, input);
+   
+   for (int i = 0; i < input.length(); ++i) {
+      if (input.at(i) != ' ') {
+         spacelessInput.push_back(input.at(i));
+      }
+   }
+   
+   //spacelessInput test
+   //cout << spacelessInput;
+   
+   for (int i = 0; i < spacelessInput.length(); ++i) {
+      backwardSpaceless.push_back(spacelessInput.at(spacelessInput.length() - i - 1));
+   }
+   
+   //backwardSpaceless test
+   //cout << backwardSpaceless;
+   
+   if (spacelessInput == backwardSpaceless) {
+      cout << "palindrome: " << input;
+   }
+   else {
+      cout << "not a palindrome: " << input;
+   }
+      cout << endl;
+
+   return 0;
+}

@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int money;
+   
+   cin >> money;
+   
+   if (money > 0) {
+      if (money >= 100) {   
+         cout << money / 100 << " Dollar";
+         if (money >= 200) {
+            cout << 's';
+         }
+         cout << endl;
+         money %= 100;
+      }
+      if (money >= 25) {   
+         cout << money / 25 << " Quarter";
+         if (money >= 50) {
+            cout << 's';
+         }
+         cout << endl;
+         money %= 25;
+      }
+      if (money >= 10) {
+         cout << money / 10 << " Dime";
+         if (money >= 20) {
+            cout << 's';
+         }
+         cout << endl;
+         money %= 10;
+      }
+      if (money >= 5) {   
+         cout << money / 5 << " Nickel";
+         if (money >= 10) {
+            cout << 's';
+         }
+         cout << endl;
+         money %= 5;
+      }
+      if (money >= 1) {      
+         cout << money / 1 << " Penn";
+         if (money >= 2) {
+            cout << "ies";
+         }
+         else {
+            cout << 'y';
+         }
+         cout << endl;
+         }
+      }
+   else {
+      cout << "No change" << endl;
+   }
+   
+   return 0;
+}

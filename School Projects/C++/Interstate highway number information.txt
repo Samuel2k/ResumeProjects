@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+   int highwayNumber;
+   
+   cin >> highwayNumber;
+
+   if (highwayNumber % 100 == 0 || highwayNumber < 1 || highwayNumber > 999) {
+      cout << highwayNumber << " is not a valid interstate highway number." << endl;
+   }
+   else {
+      if (highwayNumber >= 1 && highwayNumber <= 99) {
+         cout << "I-" <<highwayNumber << " is primary, ";
+      }
+      else if (highwayNumber >= 101 && highwayNumber <= 999) {
+         cout << "I-" << highwayNumber << " is auxiliary, serving I-" << (highwayNumber % 100) << ", ";
+         
+      }
+      
+      if (highwayNumber % 2 == 0) {
+         cout << "going east/west." << endl;
+      }
+      else {
+         cout << "going north/south." << endl;
+      }
+   }
+   
+   return 0;
+}

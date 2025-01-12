@@ -1,0 +1,52 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+/*
+	finds the name of synonyms for the word by
+	taking in an input string and letter 	(separated by whitespace)
+
+	Ex. Massage r
+
+	It will read from Massage.txt and try to find
+	any synonym starting with the letter r
+
+	ex.
+		rub
+		relax
+*/
+
+int main() {
+   //instantiate variables
+   string fileName;
+   fstream readFile;
+   char firstLetter;
+   bool matchFound = false;
+   
+   //Get file name & first letter of synonyms
+   cin >> fileName;
+   cin >> firstLetter;
+   
+   //read from file named after the input string
+   readFile.open(fileName + ".txt", ios::in);
+   
+   //todo: loop
+   while (!readFile.eof()) {
+      string readLine;
+      
+      readFile >> readLine;
+      if (readLine[0] == firstLetter) {
+         cout << readLine << endl;
+         matchFound = true;
+      }
+   }
+   //close file
+   readFile.close();
+   
+   //If no match was found for synonyms starting with the input word's name, output
+   if (!matchFound) {
+      cout << "No synonyms for " << fileName <<  " begin with " << firstLetter << '.' << endl;
+   }
+   
+   return 0;
+}

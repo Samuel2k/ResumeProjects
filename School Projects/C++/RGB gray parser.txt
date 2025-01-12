@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+   int red;
+   int blue;
+   int green;
+   
+   cin >> red;
+   cin >> blue;
+   cin >> green;
+   
+   if (red < blue && red < green) {
+      green -= red;
+      blue -= red;
+      red -= red;
+   }
+   else if (blue < red && blue < green) {
+      red -= blue;
+      green -= blue;
+      blue -= blue;
+   }
+   else if (green < blue && green < red) {
+      red -= green;
+      blue -= green;
+      green -= green;
+   }
+   else
+   {
+      red = 0;
+      blue = 0;
+      green = 0;
+   }
+
+   cout << red  << ' '<< blue << ' ' << green << endl;
+
+   return 0;
+}
+
+
+//0,0,0-255,255,255
+//125,123,12
+
+//0-f
+//9+1=10
+//f+1=10
+
+//3 + 1 = 4
+//11 + 01 = 100

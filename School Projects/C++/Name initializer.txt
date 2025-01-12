@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+   string firstName;
+   string middleName;
+   string lastName;
+   
+   char firstInitial;
+   char middleInitial;
+   
+   cin >> firstName;
+   cin >> middleName;
+   cin >> lastName;
+   
+   firstInitial = firstName.at(0);
+   middleInitial = middleName.at(0);
+   
+   if (lastName != "")
+   {
+           cout << lastName << ", " << firstInitial << '.' << middleInitial << '.' << endl;
+   }
+   else {
+      cout << middleName << ", " << firstInitial << '.' << endl;
+   }
+   
+   return 0;
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int num1;
+   int num2;
+   
+   cin >> num1;
+   cin >> num2;
+
+   if (num1 <= num2) {
+      for (int i = num1; i <= num2; i += 5) {
+         cout << i << ' ';
+      }
+   }
+   else {
+      cout << "Second integer can't be less than the first.";
+   }
+   
+   cout << endl;
+   
+   return 0;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+   int inputYear;
+   
+   cin >> inputYear;
+   
+   cout << inputYear << " - ";
+   
+   if (inputYear % 4 == 0) {
+      if (inputYear % 100 == 0) {
+         if (inputYear % 400 == 0) {
+            cout << "leap year";
+         }
+         else {
+            cout << "not a leap year";
+         }
+      }
+      else {
+         cout << "leap year";
+      }
+   }
+   else {
+      cout << "not a leap year";
+   }
+   cout << endl;
+   
+   return 0;
+}
